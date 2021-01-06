@@ -1,0 +1,1 @@
+Plant API created using Express, Node.js and Sequelize.
