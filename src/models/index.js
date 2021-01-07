@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const PlantModel = require('./plant');
 
 const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
 
@@ -10,10 +11,11 @@ const setupDatabase = () => {
     logging: false,
   });
 
+const Plant = PlantModel(connection, Sequelize);
 
   connection.sync({ alter: true });
   return {
-      
+      Plant
   };
 };
 

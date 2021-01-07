@@ -1,13 +1,16 @@
 const express = require('express');
-// const readerRouter = require('./routes/reader');
-const plantRouter = require('./routes/plant');
+const plantController = require('./controllers/plant');
 
 const app = express();
 
 app.use(express.json());
 
-// app.use('/readers', readerRouter);
+app.get('/', (req, res) => {
+    res.send("Hello World")
+})
 
-app.use('/plants', plantRouter);
+app.post('/plant', plantController.create);
+
+app.get('/plant', plantController.list);
 
 module.exports = app;

@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (connection, DataTypes) => {
     const schema = {
         name: {
             type: DataTypes.STRING,
@@ -18,5 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
 
-    return sequelize.define('Plant', schema);
+    const PlantModel=  connection.define('Plant', schema);
+    return PlantModel
 };
