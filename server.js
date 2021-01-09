@@ -1,4 +1,11 @@
 const app = require('./src/app');
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('app.js');
+const middlewares = jsonServer.defaults();
+
+server.use(middlewares);
+server.use(router);
 
 const APP_PORT = 3306;
 

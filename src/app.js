@@ -5,9 +5,9 @@ const app = express();
 
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//     res.send("Hello World")
-// })
+app.get('/', (req, res) => {
+    res.send("WELCOME TO THE PLANT API!")
+})
 
 app.post('/plant', plantController.create);
 
