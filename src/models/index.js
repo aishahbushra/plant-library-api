@@ -1,12 +1,10 @@
 const Sequelize = require('sequelize');
 const PlantModel = require('./plant');
 
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, CLEARDB_DATABASE_URL } = process.env;
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT} = process.env;
 
 const setupDatabase = () => {
-  const connection = CLEARDB_DATABASE_URL
-  ? new Sequelize(CLEARDB_DATABASE_URL)
-  : new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+  const connection = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     host: DB_HOST,
     port: DB_PORT,
     dialect: 'mysql',
@@ -22,3 +20,4 @@ const Plant = PlantModel(connection, Sequelize);
 };
 
 module.exports = setupDatabase();
+

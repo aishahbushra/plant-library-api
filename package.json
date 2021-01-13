@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "node scripts/create-database.js",
-    "start": "node index.js"
+    "start": "nodemon -r dotenv/config index.js"
   },
   "author": "aishah bushra",
   "license": "ISC",
